@@ -6,6 +6,7 @@ int main()
     const int screenWidth = 800;
     const int screenHeight = 500;
     const sf::Vector2f paddleSize(35, 100);
+    const float ballRadius = 12.f;
 
     //Create the window of application
     sf::RenderWindow window(sf::VideoMode(screenWidth, screenHeight), "Pong!", sf::Style::Titlebar | sf::Style::Close);
@@ -24,9 +25,18 @@ int main()
     rightPaddle.setSize(paddleSize);
     rightPaddle.setFillColor(sf::Color::Red);
     rightPaddle.setOutlineThickness(3);
-    rightPaddle.setOutlineColor(sf::Color(0, 0, 0));
+    rightPaddle.setOutlineColor(sf::Color(0,0,0));
     rightPaddle.setPosition(screenWidth, screenHeight / 2);
     rightPaddle.setOrigin(paddleSize / 2.f);
+
+    //Create the ball
+    sf::CircleShape ball;
+    ball.setRadius(ballRadius);
+    ball.setFillColor(sf::Color::Yellow);
+    ball.setOutlineThickness(3);
+    ball.setOutlineColor(sf::Color(0,0,0));
+    ball.setPosition(screenWidth / 2, screenHeight / 2);
+
 
     while (window.isOpen())
     {
@@ -39,6 +49,7 @@ int main()
         window.clear(sf::Color::White);
         window.draw(leftPaddle);
         window.draw(rightPaddle);
+        window.draw(ball);
         window.display();
     }
     return 0;
