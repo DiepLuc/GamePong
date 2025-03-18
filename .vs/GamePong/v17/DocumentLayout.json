@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\GamePongC\u002B\u002B\\GamePong\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D59C20A2-3E24-4F34-B3B5-D23DDBEB398F}|GamePong\\GamePong.vcxproj|C:\\GamePongC\u002B\u002B\\GamePong\\GamePong\\GamePong.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D59C20A2-3E24-4F34-B3B5-D23DDBEB398F}|GamePong\\GamePong.vcxproj|solutionrelative:GamePong\\GamePong.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GamePong.cpp",
+              "DocumentMoniker": "C:\\GamePongC\u002B\u002B\\GamePong\\GamePong\\GamePong.cpp",
+              "RelativeDocumentMoniker": "GamePong\\GamePong.cpp",
+              "ToolTip": "C:\\GamePongC\u002B\u002B\\GamePong\\GamePong\\GamePong.cpp",
+              "RelativeToolTip": "GamePong\\GamePong.cpp",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-17T07:46:48.792Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
