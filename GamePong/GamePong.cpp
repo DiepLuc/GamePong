@@ -11,7 +11,7 @@ int main()
     //Create the window of application
     sf::RenderWindow window(sf::VideoMode(screenWidth, screenHeight), "Pong!", sf::Style::Titlebar | sf::Style::Close);
     
-    //Create the left paddle
+    //Create the leftPaddle
     sf::RectangleShape leftPaddle;
     leftPaddle.setSize(paddleSize);
     leftPaddle.setFillColor(sf::Color::Green);
@@ -20,7 +20,7 @@ int main()
     leftPaddle.setPosition(0, screenHeight / 2);
     leftPaddle.setOrigin(paddleSize / 2.f);
 
-    //Create the right paddle
+    //Create the rightPaddle
     sf::RectangleShape rightPaddle;
     rightPaddle.setSize(paddleSize);
     rightPaddle.setFillColor(sf::Color::Red);
@@ -37,15 +37,33 @@ int main()
     ball.setOutlineColor(sf::Color(0,0,0));
     ball.setPosition(screenWidth / 2, screenHeight / 2);
 
+    //Difine paddle properties
+    float paddleSpeed = 270.f;
 
+
+    sf::Clock clock;
+    float deltaTime = 0.f;
     while (window.isOpen())
     {
+        deltaTime = clock.restart().asSeconds();
+
         sf::Event event;
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+
+        //The leftPaddle moving
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) leftPaddle.move(0, paddleSpeed * deltaTime); // di xuong
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) leftPaddle.move(0, -paddleSpeed * deltaTime); //di len
+
+        //The rightPaddle moving
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) rightPaddle.move(0, paddleSpeed * deltaTime); // di xuong
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) rightPaddle.move(0, -paddleSpeed * deltaTime); //di len
+
+
+
         window.clear(sf::Color::White);
         window.draw(leftPaddle);
         window.draw(rightPaddle);
