@@ -38,7 +38,7 @@ int main()
     ball.setPosition(screenWidth / 2, screenHeight / 2);
 
     //Difine paddle properties
-    float paddleSpeed = 270.f;
+    float paddleSpeed = 350.f;
 
 
     sf::Clock clock;
@@ -78,7 +78,7 @@ int main()
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
             sf::Vector2f pos = rightPaddle.getPosition();
-            if (pos.y + paddleSize.y / 2 + paddleSpeed * deltaTime > screenHeight) rightPaddle.setPosition(pos.x,0 + paddleSize.y / 2);
+            if (pos.y - paddleSize.y / 2 - paddleSpeed * deltaTime < 0) rightPaddle.setPosition(pos.x,0 + paddleSize.y / 2);
             else rightPaddle.move(0, -paddleSpeed * deltaTime); //di len
         }
 
