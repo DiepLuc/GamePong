@@ -55,12 +55,32 @@ int main()
         }
 
         //The leftPaddle moving
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) leftPaddle.move(0, paddleSpeed * deltaTime); // di xuong
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) leftPaddle.move(0, -paddleSpeed * deltaTime); //di len
-
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+        {
+            sf::Vector2f pos = leftPaddle.getPosition();
+            if (pos.y + paddleSize.y / 2 + paddleSpeed * deltaTime > screenHeight) leftPaddle.setPosition(pos.x, screenHeight - paddleSize.y / 2);
+            else leftPaddle.move(0, paddleSpeed * deltaTime); // di xuong
+        }
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+        {       
+            sf::Vector2f pos = leftPaddle.getPosition();
+            if (pos.y - paddleSize.y / 2 - paddleSpeed * deltaTime < 0)  leftPaddle.setPosition(pos.x, 0 + paddleSize.y / 2);
+            else leftPaddle.move(0, -paddleSpeed * deltaTime); //di len
+        }           
+        
         //The rightPaddle moving
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) rightPaddle.move(0, paddleSpeed * deltaTime); // di xuong
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) rightPaddle.move(0, -paddleSpeed * deltaTime); //di len
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+        {
+            sf::Vector2f pos = rightPaddle.getPosition();
+            if (pos.y + paddleSize.y / 2 + paddleSpeed * deltaTime > screenHeight) rightPaddle.setPosition(pos.x, screenHeight - paddleSize.y / 2);
+            else rightPaddle.move(0, paddleSpeed * deltaTime); // di xuong
+        }
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+        {
+            sf::Vector2f pos = rightPaddle.getPosition();
+            if (pos.y + paddleSize.y / 2 + paddleSpeed * deltaTime > screenHeight) rightPaddle.setPosition(pos.x,0 + paddleSize.y / 2);
+            else rightPaddle.move(0, -paddleSpeed * deltaTime); //di len
+        }
 
 
 
