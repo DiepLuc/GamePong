@@ -1,2 +1,4 @@
 ﻿  GamePong.cpp
+C:\Users\GALAXY\Desktop\GamePongC++\GamePong\GamePong\GamePong.cpp(6,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\GALAXY\Desktop\GamePongC++\GamePong\GamePong\GamePong.cpp(13,22): warning C4305: 'initializing': truncation from 'double' to 'float'
   GamePong.vcxproj -> C:\Users\GALAXY\Desktop\GamePongC++\GamePong\x64\Debug\GamePong.exe

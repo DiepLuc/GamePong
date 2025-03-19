@@ -1,12 +1,16 @@
 #include <SFML/Graphics.hpp>
+#include <cmath>
 
 int main()
 {
+    srand(time(NULL));
+
     //Define some constanst
     const int screenWidth = 800;
     const int screenHeight = 500;
     const sf::Vector2f paddleSize(35, 100);
     const float ballRadius = 12.f;
+    const float pi = 3.14;
 
     //Create the window of application
     sf::RenderWindow window(sf::VideoMode(screenWidth, screenHeight), "Pong!", sf::Style::Titlebar | sf::Style::Close);
@@ -38,8 +42,11 @@ int main()
     ball.setPosition(screenWidth / 2, screenHeight / 2);
 
     //Difine paddle properties
-    float paddleSpeed = 350.f;
+    float paddleSpeed = 200.f;
 
+    //Difine ball propertis
+    const float ballSpeed = 240.f;
+    float angleBall = -90.f;
 
     sf::Clock clock;
     float deltaTime = 0.f;
@@ -82,7 +89,29 @@ int main()
             else rightPaddle.move(0, -paddleSpeed * deltaTime); //di len
         }
 
+        //The ball moving
+        float factor = ballSpeed * deltaTime;
+        ball.move(sin(angleBall * pi / 180) * factor, -cos(angleBall * pi / 180) * factor);
 
+        //Check Collison with Top_Down Wall
+        if (ball.getPosition().y <= 0 || ball.getPosition().y >= screenHeight) angleBall = 180.f - angleBall;
+
+        //Check Collison with the paddle
+        //LeftPaddle
+        if (ball.getPosition().x - ballRadius <= leftPaddle.getPosition().x + paddleSize.x / 2
+            && ball.getPosition().y >= leftPaddle.getPosition().y - paddleSize.y / 2
+            && ball.getPosition().y <= leftPaddle.getPosition().y + paddleSize.y / 2
+            && ball.getPosition().x >= leftPaddle.getPosition().x)
+        {
+            angleBall = 360.f - angleBall + rand() % 10;
+        }
+        //RightPaddle
+        if (ball.getPosition().x + ballRadius >= rightPaddle.getPosition().x - paddleSize.x / 2
+            && ball.getPosition().y >= rightPaddle.getPosition().y - paddleSize.y / 2
+            && ball.getPosition().y <= rightPaddle.getPosition().y + paddleSize.y / 2)
+        {
+            angleBall = 360.f - angleBall + rand() % 10;
+        }
 
         window.clear(sf::Color::White);
         window.draw(leftPaddle);
